@@ -6,13 +6,13 @@
 #include <string>
 #include "Personnage.hpp"
 
-using namespace std;
-
 /////////////////////////////////////////////////////////
 //Construteur
-Personnage::Personnage(std::string nom) : nom_(nom), vie_(100), vieMax_(100), mana_(100), manaMax_(100), arme_(0)
+Personnage::Personnage(std::string nom) : nom_(nom), vie_(100), vieMax_(100), mana_(100), manaMax_(100), arme_(0), armure_(0), compClasse_(0)
 {
 	arme_ = new Arme();
+	armure_ = new Armure();
+	compClasse_ = new ComportementBarbare();
 }
 
 /////////////////////////////////////////////////////////
@@ -20,11 +20,13 @@ Personnage::Personnage(std::string nom) : nom_(nom), vie_(100), vieMax_(100), ma
 Personnage::~Personnage()
 {
 	delete arme_;
+	delete armure_;
+	delete compClasse_;
 }
 
 /////////////////////////////////////////////////////////
 //getters
-string Personnage::getNom()
+std::string Personnage::getNom()
 {
   return nom_;
 }
@@ -60,12 +62,42 @@ Arme * Personnage::getArme()
 }
 
 /////////////////////////////////////////////////////////
+Armure * Personnage::getArmure()
+{
+  return armure_;
+}
+
+/////////////////////////////////////////////////////////
+ComportementClasse* Personnage::getCompClasse()
+{
+    return compClasse_;
+}
+
+/////////////////////////////////////////////////////////
 void Personnage::setArme(Arme * arme)
 {
-	//arme_->setNom(arme->getNom());
-	//arme_->setDegat(arme->getDegat());
-	arme_=arme;
-	cout << "Moi " << nom_ << ", je change d'arme ! " << endl;
+    //Arme* asupp;
+	arme_->setNom(arme->getNom());
+	arme_->setDegat(arme->getDegat());
+	//asupp = arme_;
+	//arme_=arme;
+	//delete(asupp);
+	std::cout << "\t" << nom_ << " change d'arme : " << arme_->getNom() << "(" << arme_->getDegat()<< ")" << std::endl;
+}
+
+/////////////////////////////////////////////////////////
+void Personnage::setArmure(Armure * armure)
+{
+	armure_->setNom(armure->getNom());
+	armure_->setReducDegat(armure->getReducDegat());
+	std::cout << "\t" << nom_ << " change d'armure : " << armure_->getNom() << "(" << armure_->getReducDegat()<< ")"<< std::endl;
+}
+
+/////////////////////////////////////////////////////////
+void Personnage::setClasse(ComportementClasse* compClasse)
+{
+    delete compClasse_;
+    compClasse_ = compClasse;
 }
 
 /////////////////////////////////////////////////////////
@@ -76,35 +108,46 @@ bool Personnage::estVivant()
 }
 
 /////////////////////////////////////////////////////////
-void Personnage::attaqueBasique(Personnage & cible)
+void Personnage::attaque(Personnage & cible)
 {
-    cout << "\nAttaque basique de " << nom_ << " sur " << cible.getNom() << " ! " << endl;
-    cible.subirDegats(arme_->getDegat());
-
+    if(estVivant())
+    {
+        std::cout << "\tAttaque de " << nom_ << " sur " << cible.getNom() << " ! " << std::endl;
+        compClasse_->attaquer();
+        cible.subirDegats(arme_->getDegat());
+    }
+    else
+    {
+        std::cout << "Impossible, votre personnage est mort." << std::endl;
+    }
 }
 
 /////////////////////////////////////////////////////////
 void Personnage::subirDegats(int dgt)
 {
-	vie_ -= dgt;
-	cout << nom_ << " dit : Aïe ! ";
+
+	vie_ -= (dgt - (armure_->getReducDegat()));
+	std::cout << "\t" << nom_ << " dit : Aïe ! ";
 	if (vie_ < 0)
 	{
 		vie_ = 0;
-		cout << "Je suis mort... :( " << endl;
+		std::cout << "Je suis mort... :(\n" << std::endl;
 	}
-	cout << "Je suis toujours vivant :)" << endl;
+	std::cout << "Je suis toujours vivant :)\n" << std::endl;
 }
 
 /////////////////////////////////////////////////////////
 void Personnage::afficher()
 {
-	cout << "\n************************************" << endl;
-	cout << nom_ << " : " << endl;
-	cout << "Vie : " << vie_ << " / " << vieMax_ << endl;
-	cout << "Mana : " << mana_ << " / " << manaMax_ << endl;
+	std::cout << "\n------------------------------" << std::endl;
+	std::cout << nom_ << " : " << std::endl;
+	std::cout << "Vie : " << vie_ << " / " << vieMax_ << std::endl;
+	std::cout << "Mana : " << mana_ << " / " << manaMax_ << std::endl;
+	std::cout << "\tEquipe :" << std::endl;
 	arme_->afficherArme();
-	cout << "************************************" << endl;
+	armure_->afficherArmure();
+	compClasse_->getDescription();
+	std::cout << "\n------------------------------" << std::endl;
 }
 
 /////////////////////////////////////////////////////////

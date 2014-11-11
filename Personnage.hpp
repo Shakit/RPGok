@@ -7,6 +7,9 @@
 
 #include <string>
 #include "Arme.hpp"
+#include "Armure.hpp"
+#include "ComportementClasse.hpp"
+#include "ComportementBarbare.hpp"
 
 //niveau peut etre une classe
 //bourse en attribut des sousous
@@ -19,7 +22,9 @@ class Personnage
 		int vieMax_;
 		int mana_;
 		int manaMax_;
-		Arme * arme_;
+		Arme* arme_;
+		Armure* armure_;
+		ComportementClasse * compClasse_;
 
 	public :
 		//Construteur
@@ -33,14 +38,18 @@ class Personnage
 		int getVieMax();
 		int getMana();
 		int getManaMax();
-		Arme * getArme();
+		Arme* getArme();
+		Armure* getArmure();
+		ComportementClasse* getCompClasse();
 
 		//setters utiles
-		void setArme(Arme * arme);
+		void setArme(Arme* arme);
+		void setArmure(Armure* armure);
+		void setClasse(ComportementClasse* compClasse);
 
 		//methodes
 		bool estVivant();
-		void attaqueBasique(Personnage & cible);
+		void attaque(Personnage & cible);
 		void subirDegats(int dgt);
 		void afficher();
 };

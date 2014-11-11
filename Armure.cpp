@@ -1,47 +1,47 @@
-//Arme.cpp
+//Armure.cpp
 //auteurs : Alicia Boucard, Guillaume Legru
-//Implementation de la classe Arme
+//Implementation de la classe Armure
 
 #include <iostream>
 #include <string>
-#include "Arme.hpp"
+#include "Armure.hpp"
 
 /////////////////////////////////////////////////////////
-Arme::Arme() : nom_("baton de bois"), degat_(10){}
+Armure::Armure() : nom_("armure en tissu"), reducDegat_(5){}
 
 /////////////////////////////////////////////////////////
-Arme::Arme(std::string nom, int dgt) : nom_(nom), degat_(dgt){}
+Armure::Armure(std::string nom, int reduc) : nom_(nom), reducDegat_(reduc){}
 
 /////////////////////////////////////////////////////////
 //getters
-std::string Arme::getNom()
+std::string Armure::getNom()
 {
 	return nom_;
 }
 
 /////////////////////////////////////////////////////////
-int Arme::getDegat()
+int Armure::getReducDegat()
 {
-	return degat_;
+	return reducDegat_;
 }
 
 /////////////////////////////////////////////////////////
 //setter
-void Arme::setNom(std::string nom)
+void Armure::setNom(std::string nom)
 {
 	nom_ = nom;
 }
 
 /////////////////////////////////////////////////////////
-void Arme::setDegat(int dgt)
+void Armure::setReducDegat(int reduc)
 {
-	degat_ = dgt;
+	reducDegat_ = reduc;
 }
 /////////////////////////////////////////////////////////
 //methodes
-void Arme::afficherArme()
+void Armure::afficherArmure()
 {
-	std::cout << "Arme : " << nom_ << " (degat : " << degat_ << ")" << std::endl;
+	std::cout << "Armure : " << nom_ << " (defense : " << reducDegat_ << ")" << std::endl;
 }
 
 /////////////////////////////////////////////////////////
