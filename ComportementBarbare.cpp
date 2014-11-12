@@ -7,35 +7,34 @@
 #include "ComportementBarbare.hpp"
 
 /////////////////////////////////////////////////////////
- //Construteur
- ComportementBarbare::ComportementBarbare()
- {
-
- }
-
- /////////////////////////////////////////////////////////
-void  ComportementBarbare::attaquer()
+//Construteur
+ComportementBarbare::ComportementBarbare()
 {
-    std::cout << "\tEn mode Barbare !" << std::endl;
 
+}
+
+/////////////////////////////////////////////////////////
+void  ComportementBarbare::attaquer(const Personnage & attaquant, Personnage & cible)
+{
+  std::cout << "\tEn mode Barbare !" << std::endl;
+  cible.subirDegats(attaquant.getArme().getDegat());
 }
 
 /////////////////////////////////////////////////////////
 void ComportementBarbare::getDescription()
 {
-    std::cout << "Classe : Barbare" << std::endl;
-}
-/*
-void  ComportementBarbare::soigner()
-{
-
+  std::cout << "Classe : Barbare" << std::endl;
 }
 
 /////////////////////////////////////////////////////////
-void  ComportementBarbare::attMagique()
-{
+  // void  ComportementBarbare::soigner()
+  // {
 
-}
+  // }
 
-*/
+  // /////////////////////////////////////////////////////////
+  // void  ComportementBarbare::attMagique()
+  // {
+
+  // }
 /////////////////////////////////////////////////////////

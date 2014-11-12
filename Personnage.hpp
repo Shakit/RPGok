@@ -6,6 +6,7 @@
 #define PERSONNAGE_HPP
 
 #include <string>
+#include <memory>
 #include "Arme.hpp"
 #include "Armure.hpp"
 #include "ComportementClasse.hpp"
@@ -16,42 +17,42 @@
 
 class Personnage
 {
-	private :
-		std::string nom_;
-		int vie_;
-		int vieMax_;
-		int mana_;
-		int manaMax_;
-		Arme* arme_;
-		Armure* armure_;
-		ComportementClasse * compClasse_;
+private :
+  std::string nom_;
+  int vie_;
+  int vieMax_;
+  int mana_;
+  int manaMax_;
+  std::shared_ptr<Arme> arme_;
+  std::shared_ptr<Armure> armure_;
+  std::shared_ptr<ComportementClasse> compClasse_;
 
-	public :
-		//Construteur
-		Personnage(std::string nom);
-		//Destructeur
-		~Personnage();
+public :
+  //Construteur
+  Personnage(std::string nom);
+  //Destructeur
+  ~Personnage();
 
-		//getters
-		std::string getNom();
-		int getVie();
-		int getVieMax();
-		int getMana();
-		int getManaMax();
-		Arme* getArme();
-		Armure* getArmure();
-		ComportementClasse* getCompClasse();
+  //getters
+  std::string getNom();
+  int getVie();
+  int getVieMax();
+  int getMana();
+  int getManaMax();
+  std::shared_ptr<Arme> getArme();
+  std::shared_ptr<Armure> getArmure();
+  std::shared_ptr<ComportementClasse> getCompClasse();
 
-		//setters utiles
-		void setArme(Arme* arme);
-		void setArmure(Armure* armure);
-		void setClasse(ComportementClasse* compClasse);
+  //setters utiles
+  void setArme(std::shared_ptr<Arme> arme);
+  void setArmure(std::shared_ptr<Armure> armure);
+  void setClasse(std::shared_ptr<ComportementClasse> compClasse);
 
-		//methodes
-		bool estVivant();
-		void attaque(Personnage & cible);
-		void subirDegats(int dgt);
-		void afficher();
+  //methodes
+  bool estVivant();
+  void attaque(Personnage & cible);
+  void subirDegats(int dgt);
+  void afficher();
 };
 
 #endif //PERSONNAGE_HPP
