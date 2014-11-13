@@ -9,22 +9,22 @@
 
 class Armure
 {
-    private :
-        std::string nom_;
-        int reducDegat_;
+private :
+  std::string nom_;
+  int reducDegat_;
 
-	public :
-        Armure();
-		Armure(std::string nom, int reduc);
+public :
+  Armure();
+  Armure(std::string nom, int reduc);
 
-		//getters
-		std::string getNom();
-		int getReducDegat();
-		//setter
-		void setNom(std::string nom);
-		void setReducDegat(int reduc);
-		//methodes
-		void afficherArmure();
+  //getters
+  std::string getNom();
+  int getReducDegat();
+  //setter
+  void setNom(std::string nom);
+  void setReducDegat(int reduc);
+  //methodes
+  void afficherArmure();
 };
 
 #endif //ARMURE_HPP

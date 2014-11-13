@@ -5,13 +5,13 @@
 #ifndef COMPORTEMENTCLASSE_HPP
 #define COMPORTEMENTCLASSE_HPP
 
-#include "Personnage.hpp"
+class Personnage;
 
 class ComportementClasse
 {
 public :
   virtual ~ComportementClasse() = 0;
-  virtual void attaquer(const Personnage & attaquant, Personnage & cible) = 0;
+  virtual void attaquer(int degats, Personnage & cible) = 0;
   virtual void getDescription() = 0;
   //virtual void soigner() = 0;
   //virtual void attMagique() = 0;

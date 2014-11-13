@@ -5,19 +5,20 @@
 #include <iostream>
 #include <string>
 #include "ComportementBarbare.hpp"
+#include "Personnage.hpp"
 
 /////////////////////////////////////////////////////////
-//Construteur
+//ruteur
 ComportementBarbare::ComportementBarbare()
 {
 
 }
 
 /////////////////////////////////////////////////////////
-void  ComportementBarbare::attaquer(const Personnage & attaquant, Personnage & cible)
+void  ComportementBarbare::attaquer(int degats, Personnage & cible)
 {
   std::cout << "\tEn mode Barbare !" << std::endl;
-  cible.subirDegats(attaquant.getArme().getDegat());
+  cible.subirDegats(degats);
 }
 
 /////////////////////////////////////////////////////////

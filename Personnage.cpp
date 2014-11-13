@@ -110,7 +110,7 @@ void Personnage::attaque(Personnage & cible)
   if(estVivant())
     {
       std::cout << "\tAttaque de " << nom_ << " sur " << cible.getNom() << " ! " << std::endl;
-      compClasse_->attaquer(this, Personnage & cible);
+      compClasse_->attaquer(arme_->getDegat(), cible);
       //cible.subirDegats(arme_->getDegat());
     }
   else

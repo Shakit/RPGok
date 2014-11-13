@@ -6,12 +6,13 @@
 #define COMPORTEMENTBARBARE_HPP
 
 #include "ComportementClasse.hpp"
+#include "Personnage.hpp"
 
 class ComportementBarbare : public ComportementClasse
 {
 public :
   ComportementBarbare();
-  void attaquer(const Personnage & attaquant, Personnage & cible);
+  void attaquer(int degats, Personnage & cible);
   void getDescription();
   //void soigner();
   //void attMagique();
