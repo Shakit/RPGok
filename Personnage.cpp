@@ -10,7 +10,8 @@
 /////////////////////////////////////////////////////////
 //Construteur
 Personnage::Personnage(std::string nom) :
-  nom_(nom), vie_(100), vieMax_(100), mana_(100), manaMax_(100), arme_(new Arme()), armure_(new Armure()), compClasse_(new ComportementBarbare())
+	Sujet(), nom_(nom), vie_(100), vieMax_(100), mana_(100), manaMax_(100),
+	arme_(new Arme()), armure_(new Armure()), compClasse_(new ComportementBarbare())
 {
 }
 
@@ -24,98 +25,101 @@ Personnage::~Personnage()
 //getters
 std::string Personnage::getNom()
 {
-  return nom_;
+	return nom_;
 }
 
 /////////////////////////////////////////////////////////
 int Personnage::getVie()
 {
-  return vie_;
+	return vie_;
 }
 
 /////////////////////////////////////////////////////////
 int Personnage::getVieMax()
 {
-  return vieMax_;
+	return vieMax_;
 }
 
 /////////////////////////////////////////////////////////
 int Personnage::getMana()
 {
-  return mana_;
+	return mana_;
 }
 
 /////////////////////////////////////////////////////////
 int Personnage::getManaMax()
 {
-  return manaMax_;
+	return manaMax_;
 }
 
 /////////////////////////////////////////////////////////
 std::shared_ptr<Arme> Personnage::getArme()
 {
-  return arme_;
+	return arme_;
 }
 
 /////////////////////////////////////////////////////////
 std::shared_ptr<Armure> Personnage::getArmure()
 {
-  return armure_;
+	return armure_;
 }
 
 /////////////////////////////////////////////////////////
 std::shared_ptr<ComportementClasse> Personnage::getCompClasse()
 {
-  return compClasse_;
+	return compClasse_;
 }
 
 /////////////////////////////////////////////////////////
 void Personnage::setArme(std::shared_ptr<Arme> arme)
 {
-  //Arme* asupp;
-  //arme_->setNom(arme->getNom());
-  //arme_->setDegat(arme->getDegat());
-  //asupp = arme_;
-  //arme_=arme;
-  //delete(asupp);
-  arme_ = arme;
-  std::cout << "\t" << nom_ << " change d'arme : " << arme_->getNom() << "(" << arme_->getDegat()<< ")" << std::endl;
+	//Arme* asupp;
+	//arme_->setNom(arme->getNom());
+	//arme_->setDegat(arme->getDegat());
+	//asupp = arme_;
+	//arme_=arme;
+	//delete(asupp);
+	arme_ = arme;
+	std::cout << "\t" << nom_ << " change d'arme : " << arme_->getNom() << "(" << arme_->getDegat()<< ")" << std::endl;
+	notify();
 }
 
 /////////////////////////////////////////////////////////
 void Personnage::setArmure(std::shared_ptr<Armure> armure)
 {
-  //armure_->setNom(armure->getNom());
-  //armure_->setReducDegat(armure->getReducDegat());
-  armure_ = armure;
-  std::cout << "\t" << nom_ << " change d'armure : " << armure_->getNom() << "(" << armure_->getReducDegat()<< ")"<< std::endl;
+	//armure_->setNom(armure->getNom());
+	//armure_->setReducDegat(armure->getReducDegat());
+	armure_ = armure;
+	std::cout << "\t" << nom_ << " change d'armure : " << armure_->getNom() << "(" << armure_->getReducDegat()<< ")"<< std::endl;
+	notify();
 }
 
 /////////////////////////////////////////////////////////
 void Personnage::setClasse(std::shared_ptr<ComportementClasse> compClasse)
 {
-  compClasse_ = compClasse;
+	compClasse_ = compClasse;
+	notify();
 }
 
 /////////////////////////////////////////////////////////
 //methodes
 bool Personnage::estVivant()
 {
-  return (vie_ > 0);
+	return (vie_ > 0);
 }
 
 /////////////////////////////////////////////////////////
 void Personnage::attaque(Personnage & cible)
 {
-  if(estVivant())
+	if(estVivant())
     {
-      std::cout << "\tAttaque de " << nom_ << " sur " << cible.getNom() << " ! " << std::endl;
-      compClasse_->attaquer(arme_->getDegat(), cible);
-      //cible.subirDegats(arme_->getDegat());
+		std::cout << "\tAttaque de " << nom_ << " sur " << cible.getNom() << " ! " << std::endl;
+		compClasse_->attaquer(arme_->getDegat(), cible);
+		//cible.subirDegats(arme_->getDegat());
     }
-  else
+	else
     {
-      std::cout << "Impossible, votre personnage est mort." << std::endl;
+		std::cout << "Impossible, votre personnage est mort." << std::endl;
     }
 }
 
@@ -123,31 +127,32 @@ void Personnage::attaque(Personnage & cible)
 void Personnage::subirDegats(int dgt)
 {
 
-  vie_ -= (dgt - (armure_->getReducDegat()));
-  std::cout << "\t" << nom_ << " dit : Aïe ! ";
-  if (!estVivant())
+	vie_ -= (dgt - (armure_->getReducDegat()));
+	std::cout << "\t" << nom_ << " dit : Aïe ! ";
+	if (!estVivant())
     {
-      vie_ = 0;
-      std::cout << "Je suis mort... :(\n" << std::endl;
+		vie_ = 0;
+		std::cout << "Je suis mort... :(\n" << std::endl;
     }
-  else
+	else
     {
-      std::cout << "Je suis toujours vivant :)\n" << std::endl;
+		std::cout << "Je suis toujours vivant :)\n" << std::endl;
     }
+	notify();
 }
 
 /////////////////////////////////////////////////////////
 void Personnage::afficher()
 {
-  std::cout << "\n------------------------------" << std::endl;
-  std::cout << nom_ << " : " << std::endl;
-  std::cout << "Vie : " << vie_ << " / " << vieMax_ << std::endl;
-  std::cout << "Mana : " << mana_ << " / " << manaMax_ << std::endl;
-  std::cout << "\tEquipe :" << std::endl;
-  arme_->afficherArme();
-  armure_->afficherArmure();
-  compClasse_->getDescription();
-  std::cout << "\n------------------------------" << std::endl;
+	std::cout << "\n------------------------------" << std::endl;
+	std::cout << nom_ << " : " << std::endl;
+	std::cout << "Vie : " << vie_ << " / " << vieMax_ << std::endl;
+	std::cout << "Mana : " << mana_ << " / " << manaMax_ << std::endl;
+	std::cout << "\tEquipe :" << std::endl;
+	arme_->afficherArme();
+	armure_->afficherArmure();
+	compClasse_->getDescription();
+	std::cout << "\n------------------------------" << std::endl;
 }
 
 /////////////////////////////////////////////////////////

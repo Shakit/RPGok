@@ -11,48 +11,48 @@
 #include "Armure.hpp"
 #include "ComportementClasse.hpp"
 #include "ComportementBarbare.hpp"
-
+#include "Sujet.hpp"
 //niveau peut etre une classe
 //bourse en attribut des sousous
 
-class Personnage
+class Personnage : public Sujet
 {
 private :
-  std::string nom_;
-  int vie_;
-  int vieMax_;
-  int mana_;
-  int manaMax_;
-  std::shared_ptr<Arme> arme_;
-  std::shared_ptr<Armure> armure_;
-  std::shared_ptr<ComportementClasse> compClasse_;
+	std::string nom_;
+	int vie_;
+	int vieMax_;
+	int mana_;
+	int manaMax_;
+	std::shared_ptr<Arme> arme_;
+	std::shared_ptr<Armure> armure_;
+	std::shared_ptr<ComportementClasse> compClasse_;
 
 public :
-  //Construteur
-  Personnage(std::string nom);
-  //Destructeur
-  ~Personnage();
+	//Construteur
+	Personnage(std::string nom);
+	//Destructeur
+	~Personnage();
 
-  //getters
-  std::string getNom();
-  int getVie();
-  int getVieMax();
-  int getMana();
-  int getManaMax();
-  std::shared_ptr<Arme> getArme();
-  std::shared_ptr<Armure> getArmure();
-  std::shared_ptr<ComportementClasse> getCompClasse();
+	//getters
+	std::string getNom();
+	int getVie();
+	int getVieMax();
+	int getMana();
+	int getManaMax();
+	std::shared_ptr<Arme> getArme();
+	std::shared_ptr<Armure> getArmure();
+	std::shared_ptr<ComportementClasse> getCompClasse();
 
-  //setters utiles
-  void setArme(std::shared_ptr<Arme> arme);
-  void setArmure(std::shared_ptr<Armure> armure);
-  void setClasse(std::shared_ptr<ComportementClasse> compClasse);
+	//setters utiles
+	void setArme(std::shared_ptr<Arme> arme);
+	void setArmure(std::shared_ptr<Armure> armure);
+	void setClasse(std::shared_ptr<ComportementClasse> compClasse);
 
-  //methodes
-  bool estVivant();
-  void attaque(Personnage & cible);
-  void subirDegats(int dgt);
-  void afficher();
+	//methodes
+	bool estVivant();
+	void attaque(Personnage & cible);
+	void subirDegats(int dgt);
+	void afficher();
 };
 
 #endif //PERSONNAGE_HPP
