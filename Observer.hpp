@@ -8,20 +8,21 @@
 
 #include <vector>
 #include <string>
-#include <Sujet.hpp>
+
+class Sujet;
 
 class Observer
 {
-private :
-	vector<Sujet> sujet_;
-	vector<string> data_;
+protected :
+	std::vector<Sujet> sujet_;
+	std::vector<std::string> data_;
 	
 public :
 	//Ctor
 	Observer();	
-	Observer(vector<Sujet> s);
+	Observer(std::vector<Sujet> s);
 
 	//other methods
 	virtual void addSujet(Sujet s);
-	virtual void update(vector<string> data);
+	virtual void update(std::vector<std::string> data);
 };

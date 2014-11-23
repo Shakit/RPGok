@@ -1,10 +1,12 @@
-//Main.cpppppp
+//Main.cpp
 //auteurs : Alicia Boucard, Guillaume Legru
 //Classe Main
 
 #include <iostream>
 #include <string>
 #include "Personnage.hpp"
+#include "Affichage.hpp"
+
 
 void testFin(bool & b, Personnage & perso1, Personnage & perso2)
 {
@@ -14,6 +16,7 @@ void testFin(bool & b, Personnage & perso1, Personnage & perso2)
 int main()
 {
     std::string nomPerso1, nomPerso2;
+	Affichage affich();
     bool JeuEnCours = true;
     int choix;
 
@@ -24,6 +27,9 @@ int main()
 	std::cin >> nomPerso2;
     Personnage perso1(""+nomPerso1);
 	Personnage perso2(""+nomPerso2);
+	affich.addSujet(perso1);
+	affich.addSujet(perso2);
+	
 /*
     Arme arme("Epee",30);
     Arme* parme = &arme;
@@ -35,15 +41,16 @@ int main()
 */
 	while(JeuEnCours)
 	{
-        perso1.afficher();
-        perso2.afficher();
-        std::cout << "Taper : " << std::endl;
-        std::cout << "(1) pour partir au combat (BASTON!). " << std::endl;
-        std::cout << "(2) pour modifier Equipement/Classe. " << std::endl;
-        std::cout << "(3) pour aller voir le marchand. " << std::endl;
-        std::cout << "(4) pour quitter le jeu. " << std::endl;
-        std::cin >> choix;
-        switch(choix)
+        affich.afficher();
+        // std::cout << "Tapez : " << std::endl;
+        // std::cout << "(1) pour partir au combat (BASTON!). " << std::endl;
+        // std::cout << "(2) pour modifier Equipement/Classe. " << std::endl;
+        // std::cout << "(3) pour aller voir le marchand. " << std::endl;
+        // std::cout << "(4) pour quitter le jeu. " << std::endl;
+        // std::cin >> choix;
+		int choix(0);
+		affich.choixJoueur(choix);
+		switch(choix)
         {
             case 1 :
                 perso1.attaque(perso2);

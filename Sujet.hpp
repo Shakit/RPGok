@@ -7,8 +7,7 @@
 #define SUJET_HPP
 
 #include <vector>
-
-class Observer;
+#include "Observer.hpp"
 
 class Sujet
 {
