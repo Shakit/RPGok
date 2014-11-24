@@ -9,22 +9,22 @@
 
 class Arme
 {
-private :
-  std::string nom_;
-  int degat_;
+	private :
+		std::string nom_;
+		int degat_;
 
-public :
-  Arme();
-  Arme(std::string nom, int gdt);
+	public :
+		Arme();
+		Arme(std::string nom, int gdt);
 
-  //getters
-  std::string getNom();
-  int getDegat();
-  //setter
-  void setNom(std::string nom);
-  void setDegat(int gdt);
-  //methodes
-  void afficherArme();
+		//getters
+		std::string getNom();
+		int getDegat();
+		//setter
+		void setNom(std::string nom);
+		void setDegat(int gdt);
+		//methodes
+		void afficherArme();
 };
 
 #endif //ARME_HPP

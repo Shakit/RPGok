@@ -19,4 +19,3 @@ public :
 };
 
 #endif //COMPORTEMENTBARBARE_HPP
-
