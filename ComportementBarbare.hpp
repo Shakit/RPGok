@@ -13,7 +13,7 @@ class ComportementBarbare : public ComportementClasse
 public :
   ComportementBarbare();
   void utiliserCompetence(int degats, Personnage & cible);
-  void getDescription();
+	std::string getDescription();
 };
 
 #endif //COMPORTEMENTBARBARE_HPP

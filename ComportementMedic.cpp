@@ -20,9 +20,9 @@ void  ComportementMedic::utiliserCompetence(int degats, Personnage & cible)
 }
 
 /////////////////////////////////////////////////////////
-void ComportementMedic::getDescription()
+std::string ComportementMedic::getDescription()
 {
-  std::cout << "Classe : Medic" << std::endl;
+	return "Classe : Medic";
 }
 
 /////////////////////////////////////////////////////////

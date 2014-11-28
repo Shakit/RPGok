@@ -11,9 +11,9 @@
 class ComportementEnchanteur : public ComportementClasse
 {
 public :
-  ComportementEnchanteur();
-  void utiliserCompetence(int degats, Personnage & cible);
-  void getDescription();
+	ComportementEnchanteur();
+	void utiliserCompetence(int degats, Personnage & cible);
+	std::string getDescription();
 };
 
 #endif //COMPORTEMENTENCHANTEUR_HPP

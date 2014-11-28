@@ -20,9 +20,9 @@ void  ComportementEnchanteur::utiliserCompetence(int degats, Personnage & cible)
 }
 
 /////////////////////////////////////////////////////////
-void ComportementEnchanteur::getDescription()
+std::string ComportementEnchanteur::getDescription()
 {
-  std::cout << "Classe : Enchanteur" << std::endl;
+	return "Classe : Enchanteur";
 }
 
 /////////////////////////////////////////////////////////

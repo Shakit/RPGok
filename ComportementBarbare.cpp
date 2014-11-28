@@ -20,9 +20,9 @@ void  ComportementBarbare::utiliserCompetence(int degats, Personnage & cible)
 }
 
 /////////////////////////////////////////////////////////
-void ComportementBarbare::getDescription()
+std::string ComportementBarbare::getDescription()
 {
-  std::cout << "Classe : Barbare" << std::endl;
+	return "Classe : Barbare";
 }
 
 /////////////////////////////////////////////////////////

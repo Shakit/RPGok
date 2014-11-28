@@ -188,5 +188,23 @@ void Personnage::afficher()
 /////////////////////////////////////////////////////////
 void Personnage::notify()
 {
+	std::vector<std::string> data();
+	data.push_back("nom");
+	data.push_back(nom_);
+	data.push_back("vie");
+	data.push_back(vie_);
+	data.push_back(vieMax_);
+	data.push_back("mana");
+	data.push_back(mana_);
+	data.push_back(manaMax_);
+	data.push_back(arme_->afficherArme());
+	data.push_back(armure_->afficherArmure());
+	data.push_back(classe_->getDescription());
+
+	Data d(data);
 	
+	for (std::shared_ptr<Observer> o : obs)
+	{
+		o->update(d);
+	}
 }
