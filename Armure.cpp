@@ -41,8 +41,10 @@ void Armure::setReducDegat(int reduc)
 //methodes
 std::string Armure::afficherArmure()
 {
-	std::string s("Armure ");
-	return ("Armure : " + nom_ + " (defense : " + degat_ + ")");
+	std::string s("Armure " + nom_ + " (defense : ");
+	s+=reducDegat_;
+	s+=")";
+	
+	return s;
 }
-
 /////////////////////////////////////////////////////////

@@ -16,14 +16,14 @@ int main()
     bool JeuEnCours = true;
     int numAventure(0), choix1(0), choix2(0);
     std::shared_ptr<FabriqueFacile> ff(new FabriqueFacile());
-                fab_ = ff;
+	fab_ = ff;
 	std::cout << "\t\t*************** NEW GAME START ***************" << std::endl;
 	std::cout << "Comment s'appelle votre personnage ? ";
 	std::cin >> nomPerso1;
     Personnage perso1(""+nomPerso1);
 
-  while(numAventure != 1 && numAventure != 2)
-  {
+	while(numAventure != 1 && numAventure != 2)
+	{
         std::cout << "\nChoisissez l'aventure que vous voulez vivre ! " << nomPerso1 << std::endl;
         std::cout << "(1) Aventure 1 : A la rescousse du capitaine Ichoux. " << std::endl;
         std::cout << "(2) Aventure 2 : Il faut sauver le soldat Java." << std::endl;
@@ -31,29 +31,33 @@ int main()
 
         switch(numAventure)
         {
-            case 1 || 2:
-                fab_->creer(numAventure);
-                fab_->getAventure()->afficheIntro();
-                break;
+		case 1:
+			fab_->creer(numAventure);
+			fab_->getAventure()->afficheIntro();
+			break;
+		case 2:
+			fab_->creer(numAventure);
+			fab_->getAventure()->afficheIntro();
+			break;
 
-            default :
-                std::cout << "Erreur : mauvaise saisie !" << std::endl;
-                break;
+		default :
+			std::cout << "Erreur : mauvaise saisie !" << std::endl;
+			break;
         }
     }
 /*
-    Arme arme("Epee",30);
-    Arme* parme = &arme;
-    Armure armure("armure blindee",10);
-    Armure* parmu = &armure;
+  Arme arme("Epee",30);
+  Arme* parme = &arme;
+  Armure armure("armure blindee",10);
+  Armure* parmu = &armure;
 
-	perso1.setArme(parme);
-	perso2.setArmure(parmu);
+  perso1.setArme(parme);
+  perso2.setArmure(parmu);
 */
 	while(JeuEnCours)
 	{
         perso1.afficher();
-       // perso2.afficher();
+		// perso2.afficher();
         std::cout << "Taper : " << std::endl;
         std::cout << "(1) pour partir au combat (BASTON!). " << std::endl;
         std::cout << "(2) pour modifier Equipement/Classe. " << std::endl;
@@ -63,47 +67,47 @@ int main()
 
         switch(choix1)
         {
-            case 1 :
-                //perso1.attaque(perso2);
-               // perso2.attaque(perso1);
-                break;
+		case 1 :
+			//perso1.attaque(perso2);
+			// perso2.attaque(perso1);
+			break;
 
-            case 2 :
-					std::cout << "Changer d'arme ? (1) " << std::endl;
-               std::cout << "Changer d'armure ? (2) " << std::endl;
-               std::cout << "Changer de classe ? (3) " << std::endl;
-               std::cin >> choix2;
-               switch(choix2)
-               {
-               	case 1 :
-               			//perso1.setArme(parme);
-               		break;
-               	case 2 :
-								//perso2.setArmure(parmu);
-               		break;
-               	case 3 :
+		case 2 :
+			std::cout << "Changer d'arme ? (1) " << std::endl;
+			std::cout << "Changer d'armure ? (2) " << std::endl;
+			std::cout << "Changer de classe ? (3) " << std::endl;
+			std::cin >> choix2;
+			switch(choix2)
+			{
+			case 1 :
+				//perso1.setArme(parme);
+				break;
+			case 2 :
+				//perso2.setArmure(parmu);
+				break;
+			case 3 :
 
-               		break;
+				break;
 
-               	default :
-                		std::cout << "Erreur : mauvaise saisie !" << std::endl;
-                		break;
-               }
-               break;
+			default :
+				std::cout << "Erreur : mauvaise saisie !" << std::endl;
+				break;
+			}
+			break;
 
-            case 3 :
-               //////////////////
-                break;
+		case 3 :
+			//////////////////
+			break;
 
-            case 4 :
-                JeuEnCours = false;
-                break;
+		case 4 :
+			JeuEnCours = false;
+			break;
 
-            default :
-                std::cout << "Erreur : mauvaise saisie !" << std::endl;
-                break;
+		default :
+			std::cout << "Erreur : mauvaise saisie !" << std::endl;
+			break;
         }
 	}
 	std::cout << "\n\t\t*************** END GAME ***************\n" << std::endl;
-   return 0;
+	return 0;
 }//main

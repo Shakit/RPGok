@@ -5,6 +5,8 @@
 #ifndef COMPORTEMENTCLASSE_HPP
 #define COMPORTEMENTCLASSE_HPP
 
+#include<string>
+
 class Personnage;
 
 class ComportementClasse

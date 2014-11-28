@@ -7,6 +7,7 @@
 #include <memory>
 #include "Personnage.hpp"
 #include "Data.hpp"
+#include "Observer.hpp"
 #include <vector>
 
 /////////////////////////////////////////////////////////
@@ -188,23 +189,29 @@ void Personnage::afficher()
 /////////////////////////////////////////////////////////
 void Personnage::notify()
 {
-	std::vector<std::string> data();
-	data.push_back("nom");
-	data.push_back(nom_);
-	data.push_back("vie");
-	data.push_back(vie_);
-	data.push_back(vieMax_);
-	data.push_back("mana");
-	data.push_back(mana_);
-	data.push_back(manaMax_);
-	data.push_back(arme_->afficherArme());
-	data.push_back(armure_->afficherArmure());
-	data.push_back(classe_->getDescription());
+	std::vector<std::string> tab;
+	std::string bob;
 
-	Data d(data);
+	tab.emplace_back("nom");
+	tab.emplace_back(nom_);
+	tab.emplace_back("vie");
+	bob= vie_;
+	tab.emplace_back(bob);
+	bob = vieMax_;
+	tab.emplace_back(bob);
+	tab.emplace_back("mana");
+	bob = mana_;
+	tab.emplace_back(bob);
+	bob = manaMax_;
+	tab.emplace_back(bob);
+	tab.emplace_back(arme_->afficherArme());
+	tab.emplace_back(armure_->afficherArmure());
+	tab.emplace_back(compClasse_->getDescription());
+
+	Data d(tab);
 	
 	for (std::shared_ptr<Observer> o : obs)
 	{
-		o->update(d);
+		(*o).update(d);
 	}
 }
