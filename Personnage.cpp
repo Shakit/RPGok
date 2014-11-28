@@ -6,6 +6,8 @@
 #include <string>
 #include <memory>
 #include "Personnage.hpp"
+#include "Data.hpp"
+#include <vector>
 
 /////////////////////////////////////////////////////////
 //Construteur
@@ -69,7 +71,12 @@ std::shared_ptr<ComportementClasse> Personnage::getCompClasse()
 {
 	return compClasse_;
 }
-
+/////////////////////////////////////////////////////////
+void  Personnage::setVie(int vie)
+{
+	vie_ = vie;
+	notify();
+}
 /////////////////////////////////////////////////////////
 void Personnage::setArme(std::shared_ptr<Arme> arme)
 {
@@ -81,7 +88,7 @@ void Personnage::setArme(std::shared_ptr<Arme> arme)
 	//delete(asupp);
 	arme_ = arme;
 	std::cout << "\t" << nom_ << " change d'arme : " << arme_->getNom() << "(" << arme_->getDegat()<< ")" << std::endl;
-	//notify();
+	notify();
 }
 
 /////////////////////////////////////////////////////////
@@ -91,14 +98,14 @@ void Personnage::setArmure(std::shared_ptr<Armure> armure)
 	//armure_->setReducDegat(armure->getReducDegat());
 	armure_ = armure;
 	std::cout << "\t" << nom_ << " change d'armure : " << armure_->getNom() << "(" << armure_->getReducDegat()<< ")"<< std::endl;
-	//notify();
+	notify();
 }
 
 /////////////////////////////////////////////////////////
 void Personnage::setClasse(std::shared_ptr<ComportementClasse> compClasse)
 {
 	compClasse_ = compClasse;
-	//notify();
+	notify();
 }
 
 /////////////////////////////////////////////////////////
@@ -114,8 +121,7 @@ void Personnage::attaque(Personnage & cible)
 	if(estVivant())
     {
 		std::cout << "\tAttaque de " << nom_ << " sur " << cible.getNom() << " ! " << std::endl;
-		compClasse_->attaquer(arme_->getDegat(), cible);
-		//cible.subirDegats(arme_->getDegat());
+		compClasse_->utiliserCompetence(arme_->getDegat(), cible);
     }
 	else
     {
@@ -138,7 +144,31 @@ void Personnage::subirDegats(int dgt)
     {
 		std::cout << "Je suis toujours vivant :)\n" << std::endl;
     }
-	//notify();
+	notify();
+}
+
+/////////////////////////////////////////////////////////
+void Personnage::subirDegatsMagique(int dgt)
+{
+	vie_ -= (dgt);
+	mana_ -= 10;
+	std::cout << "\t" << nom_ << " dit : Aïe ! ";
+	if (!estVivant())
+    {
+		vie_ = 0;
+		std::cout << "Je suis mort... :(\n" << std::endl;
+    }
+	else
+    {
+		std::cout << "Je suis toujours vivant :)\n" << std::endl;
+    }
+	notify();
+}
+
+/////////////////////////////////////////////////////////
+void Personnage::soigner(Personnage & cible)
+{
+	cible.setVie(cible.getVie() + 25);
 }
 
 /////////////////////////////////////////////////////////
@@ -156,3 +186,7 @@ void Personnage::afficher()
 }
 
 /////////////////////////////////////////////////////////
+void Personnage::notify()
+{
+	
+}

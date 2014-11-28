@@ -11,11 +11,13 @@
 #include "Armure.hpp"
 #include "ComportementClasse.hpp"
 #include "ComportementBarbare.hpp"
-//#include "Sujet.hpp"
+#include "ComportementMedic.hpp"
+#include "ComportementEnchanteur.hpp"
+#include "Sujet.hpp"
 //niveau peut etre une classe
 //bourse en attribut des sousous
 
-class Personnage // public Sujet
+class Personnage : public Sujet
 {
 private :
 	std::string nom_;
@@ -44,6 +46,7 @@ public :
 	std::shared_ptr<ComportementClasse> getCompClasse();
 
 	//setters utiles
+	void setVie(int vie);
 	void setArme(std::shared_ptr<Arme> arme);
 	void setArmure(std::shared_ptr<Armure> armure);
 	void setClasse(std::shared_ptr<ComportementClasse> compClasse);
@@ -52,7 +55,10 @@ public :
 	bool estVivant();
 	void attaque(Personnage & cible);
 	void subirDegats(int dgt);
+	void subirDegatsMagique(int dgt);
+	void soigner(Personnage & cible);
 	void afficher();
+	void notify();
 };
 
 #endif //PERSONNAGE_HPP

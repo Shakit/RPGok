@@ -1,18 +1,18 @@
-//Aventure1.cpp
+//Aventure1Facile.cpp
 //auteurs : Alicia Boucard, Guillaume Legru
 //Implementation de la classe Aventure1
 
 #include <iostream>
 #include <string>
-#include "Aventure1.hpp"
+#include "Aventure1Facile.hpp"
 
 /////////////////////////////////////////////////////////
  //Construteur
-Aventure1::Aventure1()
+Aventure1Facile::Aventure1Facile()
  {}
 
  /////////////////////////////////////////////////////////
-void Aventure1::afficheIntro()
+void Aventure1Facile::afficheIntro()
 {
     std::cout << "\t\t \"A la rescousse du capitaine Ichoux !\"\n " << std::endl;
     std::cout << "Votre bateau a fait naufrage et vous vous reveillez sur une ile tropicale...seul. " << std::endl;

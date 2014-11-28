@@ -10,12 +10,10 @@
 /////////////////////////////////////////////////////////
 //ruteur
 ComportementBarbare::ComportementBarbare()
-{
-
-}
+{}
 
 /////////////////////////////////////////////////////////
-void  ComportementBarbare::attaquer(int degats, Personnage & cible)
+void  ComportementBarbare::utiliserCompetence(int degats, Personnage & cible)
 {
   std::cout << "\tEn mode Barbare !" << std::endl;
   cible.subirDegats(degats);
@@ -27,15 +25,4 @@ void ComportementBarbare::getDescription()
   std::cout << "Classe : Barbare" << std::endl;
 }
 
-/////////////////////////////////////////////////////////
-  // void  ComportementBarbare::soigner()
-  // {
-
-  // }
-
-  // /////////////////////////////////////////////////////////
-  // void  ComportementBarbare::attMagique()
-  // {
-
-  // }
 /////////////////////////////////////////////////////////

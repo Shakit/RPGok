@@ -7,17 +7,19 @@
 
 #include <memory>
 #include"Aventure.hpp"
-#include"Aventure1.hpp"
+#include"Aventure1Facile.hpp"
+#include"Aventure2Facile.hpp"
 
 class Fabrique
 {
-    private :
+    protected :
         std::shared_ptr<Aventure> av_;
 
 	public :
 		Fabrique();
-		std::shared_ptr<Aventure> getAventure();
-		std::shared_ptr<Aventure> creer(int numAventure);
+		virtual~Fabrique() = 0;
+		virtual std::shared_ptr<Aventure> getAventure();
+		virtual std::shared_ptr<Aventure> creer(int numAventure) = 0;
 };
 
-#endif //AVENTURE1_HPP
+#endif //FABRIQUE_HPP

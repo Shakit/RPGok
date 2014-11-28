@@ -12,10 +12,8 @@ class ComportementBarbare : public ComportementClasse
 {
 public :
   ComportementBarbare();
-  void attaquer(int degats, Personnage & cible);
+  void utiliserCompetence(int degats, Personnage & cible);
   void getDescription();
-  //void soigner();
-  //void attMagique();
 };
 
 #endif //COMPORTEMENTBARBARE_HPP

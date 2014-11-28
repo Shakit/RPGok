@@ -7,27 +7,39 @@
 #include <memory>
 #include "Personnage.hpp"
 #include "Fabrique.hpp"
+#include "FabriqueFacile.hpp"
 
 int main()
 {
-    std::string nomPerso1, nomPerso2;
-    std::shared_ptr<Aventure> av_;
-    Fabrique fab_;
-    int numAventure;
+    std::string nomPerso1;
+    std::shared_ptr<Fabrique> fab_;
     bool JeuEnCours = true;
-    int choix1(0), choix2(0);
-
+    int numAventure(0), choix1(0), choix2(0);
+    std::shared_ptr<FabriqueFacile> ff(new FabriqueFacile());
+                fab_ = ff;
 	std::cout << "\t\t*************** NEW GAME START ***************" << std::endl;
 	std::cout << "Comment s'appelle votre personnage ? ";
 	std::cin >> nomPerso1;
-   Personnage perso1(""+nomPerso1);
+    Personnage perso1(""+nomPerso1);
 
-   while(numAventure != 1 && numAventure != 2)
-   {
-        std::cout << "Choisissez l'aventure que vous voulez vivre ! " << std::endl;
+  while(numAventure != 1 && numAventure != 2)
+  {
+        std::cout << "\nChoisissez l'aventure que vous voulez vivre ! " << nomPerso1 << std::endl;
         std::cout << "(1) Aventure 1 : A la rescousse du capitaine Ichoux. " << std::endl;
         std::cout << "(2) Aventure 2 : Il faut sauver le soldat Java." << std::endl;
         std::cin >> numAventure;
+
+        switch(numAventure)
+        {
+            case 1 || 2:
+                fab_->creer(numAventure);
+                fab_->getAventure()->afficheIntro();
+                break;
+
+            default :
+                std::cout << "Erreur : mauvaise saisie !" << std::endl;
+                break;
+        }
     }
 /*
     Arme arme("Epee",30);
@@ -38,8 +50,6 @@ int main()
 	perso1.setArme(parme);
 	perso2.setArmure(parmu);
 */
-    fab_.creer(numAventure);
-    fab_.getAventure()->afficheIntro();
 	while(JeuEnCours)
 	{
         perso1.afficher();
@@ -50,6 +60,7 @@ int main()
         std::cout << "(3) pour aller voir le marchand. " << std::endl;
         std::cout << "(4) pour quitter le jeu. " << std::endl;
         std::cin >> choix1;
+
         switch(choix1)
         {
             case 1 :
