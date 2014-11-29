@@ -16,11 +16,10 @@ class Observer
 protected:
 	std::shared_ptr<Sujet> sujet;
 	Data data;
-
-	//Ctor
-	Observer(std::shared_ptr<Sujet> s);
 	
 public:
+	//Ctor
+	Observer(std::shared_ptr<Sujet> s);
 	virtual void update(Data d);
 };
 

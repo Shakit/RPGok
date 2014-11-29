@@ -12,8 +12,7 @@
 
 int main()
 {
-	Personnage perso("Toto");
-	std::shared_ptr<Personnage> p(&perso);
+	std::shared_ptr<Personnage> p(new Personnage("Toto"));
 	Affichage aff(p);
 /*
     std::string nomPerso1;

@@ -11,6 +11,12 @@ Affichage::Affichage(std::shared_ptr<Sujet> s) : Observer(s)
 	s->notify();
 }
 
+void Affichage::update(Data d)
+{
+	Observer::update(d);
+	afficherPerso();
+}
+
 void Affichage::afficherPerso()
 {
 	std::vector<std::string> v(data.getStats());
