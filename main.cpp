@@ -8,9 +8,14 @@
 #include "Personnage.hpp"
 #include "Fabrique.hpp"
 #include "FabriqueFacile.hpp"
+#include "Affichage.hpp"
 
 int main()
 {
+	Personnage perso("Toto");
+	std::shared_ptr<Personnage> p(&perso);
+	Affichage aff(p);
+/*
     std::string nomPerso1;
     std::shared_ptr<Fabrique> fab_;
     bool JeuEnCours = true;
@@ -45,15 +50,14 @@ int main()
 			break;
         }
     }
-/*
-  Arme arme("Epee",30);
-  Arme* parme = &arme;
-  Armure armure("armure blindee",10);
-  Armure* parmu = &armure;
 
-  perso1.setArme(parme);
-  perso2.setArmure(parmu);
-*/
+  // Arme arme("Epee",30);
+  // Arme* parme = &arme;
+  // Armure armure("armure blindee",10);
+  // Armure* parmu = &armure;
+
+  // perso1.setArme(parme);
+  // perso2.setArmure(parmu);
 	while(JeuEnCours)
 	{
         perso1.afficher();
@@ -109,5 +113,6 @@ int main()
         }
 	}
 	std::cout << "\n\t\t*************** END GAME ***************\n" << std::endl;
+*/
 	return 0;
 }//main
