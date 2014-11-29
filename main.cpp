@@ -13,7 +13,12 @@
 int main()
 {
 	std::shared_ptr<Personnage> p(new Personnage("Toto"));
-	Affichage aff(p);
+	std::shared_ptr<Affichage> aff(new Affichage(p));
+	aff.reset();
+	p.reset();
+								   
+								   
+								   
 /*
     std::string nomPerso1;
     std::shared_ptr<Fabrique> fab_;

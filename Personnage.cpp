@@ -190,24 +190,27 @@ void Personnage::afficher()
 void Personnage::notify()
 {
 	std::vector<std::string> tab;
-	std::string bob;
+	//std::string bob;
 
 	tab.emplace_back("nom");
 	tab.emplace_back(nom_);
 	tab.emplace_back("vie");
-	bob= vie_;
-	tab.emplace_back(bob);
-	bob = vieMax_;
-	tab.emplace_back(bob);
+	//bob= vie_;
+	tab.emplace_back(std::to_string(vie_));
+	//bob = vieMax_;
+	tab.emplace_back(std::to_string(vieMax_));
 	tab.emplace_back("mana");
-	bob = mana_;
-	tab.emplace_back(bob);
-	bob = manaMax_;
-	tab.emplace_back(bob);
+	//bob = mana_;
+	tab.emplace_back(std::to_string(mana_));
+	//bob = manaMax_;
+	tab.emplace_back(std::to_string(manaMax_));
 	tab.emplace_back(arme_->afficherArme());
 	tab.emplace_back(armure_->afficherArmure());
 	tab.emplace_back(compClasse_->getDescription());
 
+	//for (std::string s : tab)
+	//  std::cout << s << std::endl;
+	
 	Data d(tab);
 	
 	for (std::shared_ptr<Observer> o : obs)
