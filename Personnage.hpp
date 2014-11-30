@@ -14,8 +14,8 @@
 #include "ComportementMedic.hpp"
 #include "ComportementEnchanteur.hpp"
 #include "Sujet.hpp"
-//niveau peut etre une classe
-//bourse en attribut des sousous
+#include "Data.hpp"
+#include "Observer.hpp"
 
 class Personnage : public Sujet
 {

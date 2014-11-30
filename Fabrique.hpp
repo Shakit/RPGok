@@ -9,6 +9,8 @@
 #include"Aventure.hpp"
 #include"Aventure1Facile.hpp"
 #include"Aventure2Facile.hpp"
+#include"Aventure1Difficile.hpp"
+#include"Aventure2Difficile.hpp"
 
 class Fabrique
 {

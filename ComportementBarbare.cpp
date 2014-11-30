@@ -5,12 +5,10 @@
 #include <iostream>
 #include <string>
 #include "ComportementBarbare.hpp"
-#include "Personnage.hpp"
 
 /////////////////////////////////////////////////////////
 //ruteur
-ComportementBarbare::ComportementBarbare()
-{}
+ComportementBarbare::ComportementBarbare(){}
 
 /////////////////////////////////////////////////////////
 void  ComportementBarbare::utiliserCompetence(int degats, Personnage & cible)
@@ -23,6 +21,12 @@ void  ComportementBarbare::utiliserCompetence(int degats, Personnage & cible)
 std::string ComportementBarbare::getDescription()
 {
 	return "Classe : Barbare";
+}
+
+/////////////////////////////////////////////////////////
+void ComportementBarbare::afficherClasse()
+{
+    std::cout << "Classe : " << this->getDescription() << std::endl;
 }
 
 /////////////////////////////////////////////////////////

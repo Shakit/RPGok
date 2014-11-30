@@ -5,12 +5,10 @@
 #include <iostream>
 #include <string>
 #include "ComportementEnchanteur.hpp"
-#include "Personnage.hpp"
 
 /////////////////////////////////////////////////////////
 //ruteur
-ComportementEnchanteur::ComportementEnchanteur()
-{}
+ComportementEnchanteur::ComportementEnchanteur(){}
 
 /////////////////////////////////////////////////////////
 void  ComportementEnchanteur::utiliserCompetence(int degats, Personnage & cible)
@@ -22,10 +20,15 @@ void  ComportementEnchanteur::utiliserCompetence(int degats, Personnage & cible)
 /////////////////////////////////////////////////////////
 std::string ComportementEnchanteur::getDescription()
 {
-	return "Classe : Enchanteur";
+	return "Enchanteur";
 }
 
 /////////////////////////////////////////////////////////
+void ComportementEnchanteur::afficherClasse()
+{
+    std::cout << "Classe : " << this->getDescription() << std::endl;
+}
 
+/////////////////////////////////////////////////////////
 
 

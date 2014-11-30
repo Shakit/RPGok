@@ -41,8 +41,7 @@ void Arme::setDegat(int dgt)
 //methodes
 std::string Arme::afficherArme()
 {
-	std::string s("Arme : " + nom_ + " (degat : " + std::to_string(degat_) + ")");
-
+    std::string s("Armure " + nom_ + " (defense : " + std::to_string(degat_) +")");
 	return s;
 }
 

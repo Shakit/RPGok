@@ -1,14 +1,15 @@
 //Affichage.cpp
 //author : Alicia Boucard, Guillaume Legru
 
-#include "Affichage.hpp"
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
+#include "Affichage.hpp"
 
 Affichage::Affichage(std::shared_ptr<Sujet> s) : Observer(s)
 {
-	s->notify();
+    s->notify();
+	//sujet_ = s;
 }
 
 void Affichage::update(Data d)

@@ -19,4 +19,4 @@ public :
 	void afficherPerso();
 };
 
-#endif //AFFICHAGE_HPP	
+#endif //AFFICHAGE_HPP

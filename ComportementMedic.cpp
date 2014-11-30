@@ -5,12 +5,10 @@
 #include <iostream>
 #include <string>
 #include "ComportementMedic.hpp"
-#include "Personnage.hpp"
 
 /////////////////////////////////////////////////////////
 //construteur
-ComportementMedic::ComportementMedic()
-{}
+ComportementMedic::ComportementMedic(){}
 
 /////////////////////////////////////////////////////////
 void  ComportementMedic::utiliserCompetence(int degats, Personnage & cible)
@@ -22,8 +20,13 @@ void  ComportementMedic::utiliserCompetence(int degats, Personnage & cible)
 /////////////////////////////////////////////////////////
 std::string ComportementMedic::getDescription()
 {
-	return "Classe : Medic";
+	return "Medic";
 }
 
 /////////////////////////////////////////////////////////
+void ComportementMedic::afficherClasse()
+{
+    std::cout << "Classe : " << this->getDescription() << std::endl;
+}
 
+/////////////////////////////////////////////////////////

@@ -14,13 +14,14 @@ private :
 	int degat_;
 
 public :
+    //Constructors
 	Arme();
 	Arme(std::string nom, int gdt);
 
 	//getters
 	std::string getNom();
 	int getDegat();
-	//setter
+	//setters
 	void setNom(std::string nom);
 	void setDegat(int gdt);
 	//methodes

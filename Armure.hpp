@@ -14,13 +14,14 @@ private :
 	int reducDegat_;
 
 public :
+    //Constructors
 	Armure();
 	Armure(std::string nom, int reduc);
 
 	//getters
 	std::string getNom();
 	int getReducDegat();
-	//setter
+	//setters
 	void setNom(std::string nom);
 	void setReducDegat(int reduc);
 	//methodes

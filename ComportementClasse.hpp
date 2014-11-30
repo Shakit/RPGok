@@ -12,11 +12,10 @@ class Personnage;
 class ComportementClasse
 {
 public :
-  virtual ~ComportementClasse() = 0;
-  virtual void utiliserCompetence(int degats, Personnage & cible) = 0;
-  
+    virtual ~ComportementClasse() = 0;
+    virtual void utiliserCompetence(int degats, Personnage & cible) = 0;
 	virtual std::string getDescription() = 0;
-
+	virtual void afficherClasse() = 0;
 };
 
 #endif //COMPORTEMENTCLASSE_HPP

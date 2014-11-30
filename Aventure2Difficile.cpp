@@ -1,17 +1,17 @@
-//Aventure2Facile.cpp
+//Aventure2Difficile.cpp
 //auteurs : Alicia Boucard, Guillaume Legru
-//Implementation de la classe Aventure2Facile
+//Implementation de la classe Aventure2Difficile
 
 #include <iostream>
 #include <string>
-#include "Aventure2Facile.hpp"
+#include "Aventure2Difficile.hpp"
 
 /////////////////////////////////////////////////////////
  //Construteur
-Aventure2Facile::Aventure2Facile(){}
+Aventure2Difficile::Aventure2Difficile(){}
 
  /////////////////////////////////////////////////////////
-void Aventure2Facile::afficheIntro()
+void Aventure2Difficile::afficheIntro()
 {
     std::cout << "\t\t \"Il faut sauver le soldat Java !\"\n " << std::endl;
     std::cout << "Vous êtes un soldat sur le champ de bataille. C'est la guerre tout autour de vous." << std::endl;
@@ -20,28 +20,29 @@ void Aventure2Facile::afficheIntro()
 }
 
 /////////////////////////////////////////////////////////
-void Aventure2Facile::affichePart1()
+void Aventure2Difficile::affichePart1()
 {
 std::cout << " " << std::endl;
 }
 
 /////////////////////////////////////////////////////////
-void Aventure2Facile::affichePart2()
+void Aventure2Difficile::affichePart2()
 {
 std::cout << " " << std::endl;
 }
 
 /////////////////////////////////////////////////////////
-void Aventure2Facile::affichePart3()
+void Aventure2Difficile::affichePart3()
 {
 std::cout << " " << std::endl;
 }
 
 /////////////////////////////////////////////////////////
-void Aventure2Facile::afficheFin()
+void Aventure2Difficile::afficheFin()
 {
 std::cout << " " << std::endl;
 }
 
 /////////////////////////////////////////////////////////
+
 

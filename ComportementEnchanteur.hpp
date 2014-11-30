@@ -14,8 +14,8 @@ public :
 	ComportementEnchanteur();
 	void utiliserCompetence(int degats, Personnage & cible);
 	std::string getDescription();
+	void afficherClasse();
 };
 
 #endif //COMPORTEMENTENCHANTEUR_HPP
-
 

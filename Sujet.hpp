@@ -6,7 +6,8 @@
 
 #include <vector>
 #include <memory>
-//#include "Observer.hpp"
+#include "Observer.hpp"
+#include "Data.hpp"
 
 class Observer;
 
@@ -14,9 +15,10 @@ class Sujet
 {
 protected :
 	std::vector<std::shared_ptr<Observer>> obs;
-
+    Data data;
 	//Ctor
 	Sujet();
+    virtual ~Sujet();
 
 public :
 	//methodes du pattern observer
@@ -26,5 +28,3 @@ public :
 };
 
 #endif //SUJET_HPP
-
-	

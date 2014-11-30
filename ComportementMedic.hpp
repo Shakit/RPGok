@@ -11,10 +11,10 @@
 class ComportementMedic : public ComportementClasse
 {
 public :
-  ComportementMedic();
-  void utiliserCompetence(int degats, Personnage & cible);
-	std::string getDescription();
+    ComportementMedic();
+    void utiliserCompetence(int degats, Personnage & cible);
+    std::string getDescription();
+    void afficherClasse();
 };
 
 #endif //COMPORTEMENTMEDIC_HPP
-

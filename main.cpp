@@ -8,18 +8,15 @@
 #include "Personnage.hpp"
 #include "Fabrique.hpp"
 #include "FabriqueFacile.hpp"
+#include "FabriqueDifficile.hpp"
 #include "Affichage.hpp"
+#include "Sujet.hpp"
 
 int main()
 {
-	std::shared_ptr<Personnage> p(new Personnage("Toto"));
+	std::shared_ptr<Sujet> p(new Personnage("Toto"));
 	std::shared_ptr<Affichage> aff(new Affichage(p));
-	aff.reset();
-	p.reset();
-								   
-								   
-								   
-/*
+	
     std::string nomPerso1;
     std::shared_ptr<Fabrique> fab_;
     bool JeuEnCours = true;
@@ -117,6 +114,7 @@ int main()
         }
 	}
 	std::cout << "\n\t\t*************** END GAME ***************\n" << std::endl;
-*/
+
 	return 0;
 }//main
+

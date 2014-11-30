@@ -5,24 +5,20 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <vector>
 #include "Personnage.hpp"
 #include "Data.hpp"
 #include "Observer.hpp"
-#include <vector>
 
 /////////////////////////////////////////////////////////
 //Construteur
 Personnage::Personnage(std::string nom) :
     nom_(nom), vie_(100), vieMax_(100), mana_(100), manaMax_(100),
-	arme_(new Arme()), armure_(new Armure()), compClasse_(new ComportementBarbare())
-{
-}
+	arme_(new Arme()), armure_(new Armure()), compClasse_(new ComportementBarbare()){}
 
 /////////////////////////////////////////////////////////
 //Destructeur
-Personnage::~Personnage()
-{
-}
+Personnage::~Personnage(){}
 
 /////////////////////////////////////////////////////////
 //getters
@@ -98,7 +94,7 @@ void Personnage::setArmure(std::shared_ptr<Armure> armure)
 	//armure_->setNom(armure->getNom());
 	//armure_->setReducDegat(armure->getReducDegat());
 	armure_ = armure;
-	std::cout << "\t" << nom_ << " change d'armure : " << armure_->getNom() << "(" << armure_->getReducDegat()<< ")"<< std::endl;
+	std::cout << "\t" << nom_ << " change d'armure : " << armure_->getNom() << "(" << armure_->getReducDegat() << ")" << std::endl;
 	notify();
 }
 
@@ -106,6 +102,7 @@ void Personnage::setArmure(std::shared_ptr<Armure> armure)
 void Personnage::setClasse(std::shared_ptr<ComportementClasse> compClasse)
 {
 	compClasse_ = compClasse;
+	std::cout << "\t" << nom_ << " change : " << compClasse_->getDescription() << std::endl;
 	notify();
 }
 
@@ -182,7 +179,7 @@ void Personnage::afficher()
 	std::cout << "\tEquipe :" << std::endl;
 	arme_->afficherArme();
 	armure_->afficherArmure();
-	compClasse_->getDescription();
+	compClasse_->afficherClasse();
 	std::cout << "\n------------------------------" << std::endl;
 }
 
@@ -190,31 +187,25 @@ void Personnage::afficher()
 void Personnage::notify()
 {
 	std::vector<std::string> tab;
-	//std::string bob;
 
-	tab.emplace_back("nom");
-	tab.emplace_back(nom_);
-	tab.emplace_back("vie");
-	//bob= vie_;
-	tab.emplace_back(std::to_string(vie_));
-	//bob = vieMax_;
-	tab.emplace_back(std::to_string(vieMax_));
-	tab.emplace_back("mana");
-	//bob = mana_;
-	tab.emplace_back(std::to_string(mana_));
-	//bob = manaMax_;
-	tab.emplace_back(std::to_string(manaMax_));
-	tab.emplace_back(arme_->afficherArme());
-	tab.emplace_back(armure_->afficherArmure());
-	tab.emplace_back(compClasse_->getDescription());
+	tab.push_back("nom");
+	tab.push_back(nom_);
+	tab.push_back("vie");
+	tab.push_back(std::to_string(vie_));
+	tab.push_back(std::to_string(vieMax_));
+	tab.push_back("mana");
+	tab.push_back(std::to_string(mana_));
+	tab.push_back(std::to_string(manaMax_));
+	tab.push_back(arme_->afficherArme());
+	tab.push_back(armure_->afficherArmure());
+	tab.push_back(compClasse_->getDescription());
 
-	//for (std::string s : tab)
-	//  std::cout << s << std::endl;
-	
 	Data d(tab);
-	
+
 	for (std::shared_ptr<Observer> o : obs)
 	{
-		(*o).update(d);
+		o->update(d);
 	}
 }
+
+/////////////////////////////////////////////////////////
