@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_aventure.html" title="classe abstraite aventure" alt="" coords="5,85,83,115"/>
+<area shape="rect" id="node3" href="$class_aventure1_difficile.html" title="classe abstraite aventure" alt="" coords="132,5,257,35"/>
+<area shape="rect" id="node5" href="$class_aventure1_facile.html" title="classe abstraite aventure" alt="" coords="135,59,255,88"/>
+<area shape="rect" id="node7" href="$class_aventure2_difficile.html" title="classe abstraite aventure" alt="" coords="132,112,257,141"/>
+<area shape="rect" id="node9" href="$class_aventure2_facile.html" title="classe abstraite aventure" alt="" coords="135,165,255,195"/>
+</map>

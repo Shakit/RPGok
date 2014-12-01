@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_comportement_classe.html" title="Classe abstraite de comportement." alt="" coords="5,59,160,88"/>
+<area shape="rect" id="node3" href="$class_comportement_barbare.html" title="Classe concrete de comportement." alt="" coords="219,5,379,35"/>
+<area shape="rect" id="node5" href="$class_comportement_enchanteur.html" title="Classe concrete de comportement." alt="" coords="208,59,389,88"/>
+<area shape="rect" id="node7" href="$class_comportement_medic.html" title="Classe concrete de comportement." alt="" coords="224,112,373,141"/>
+</map>

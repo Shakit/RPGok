@@ -1,0 +1,26 @@
+<map id="Personnage.hpp" name="Personnage.hpp">
+<area shape="rect" id="node3" href="$_aventure_8hpp.html" title="Header de la classe Aventure." alt="" coords="440,83,541,112"/>
+<area shape="rect" id="node19" href="$main_8cpp.html" title="Petit RPG réalisé pour l&#39;UE Objet et Developpement d&#39;Applications." alt="" coords="556,392,633,421"/>
+<area shape="rect" id="node43" href="$_comportement_barbare_8hpp.html" title="Header de la classe ComportementBarbare." alt="" coords="944,83,1131,112"/>
+<area shape="rect" id="node48" href="$_comportement_medic_8hpp.html" title="Header de la classe ComportementMedic." alt="" coords="1155,83,1328,112"/>
+<area shape="rect" id="node53" href="$_comportement_enchanteur_8hpp.html" title="Header de la classe ComportementEnchanteur." alt="" coords="1352,83,1557,112"/>
+<area shape="rect" id="node59" href="$_personnage_8cpp.html" title="Implementation de la classe Personnage." alt="" coords="1581,83,1704,112"/>
+<area shape="rect" id="node5" href="$_aventure_8cpp.html" title="Implementation de la classe Aventure." alt="" coords="5,160,107,189"/>
+<area shape="rect" id="node7" href="$_aventure1_difficile_8hpp.html" title="Header de la classe Aventure2Difficile." alt="" coords="301,160,453,189"/>
+<area shape="rect" id="node11" href="$_fabrique_8hpp.html" title="Header de la classe Fabrique." alt="" coords="421,237,523,267"/>
+<area shape="rect" id="node27" href="$_aventure1_facile_8hpp.html" title="Header de la classe Aventure2Facile." alt="" coords="528,160,675,189"/>
+<area shape="rect" id="node32" href="$_aventure2_difficile_8hpp.html" title="Header de la classe Aventure2Difficile." alt="" coords="699,160,851,189"/>
+<area shape="rect" id="node37" href="$_aventure2_facile_8hpp.html" title="Header de la classe Aventure2Facile." alt="" coords="131,160,277,189"/>
+<area shape="rect" id="node9" href="$_aventure1_difficile_8cpp.html" title="Implementation de la classe Aventure1Difficile." alt="" coords="245,237,397,267"/>
+<area shape="rect" id="node13" href="$_fabrique_8cpp.html" title="Implémentation de la classe Fabrique." alt="" coords="273,315,375,344"/>
+<area shape="rect" id="node15" href="$_fabrique_difficile_8hpp.html" title="Header de la classe FabriqueDifficile." alt="" coords="399,315,545,344"/>
+<area shape="rect" id="node21" href="$_fabrique_facile_8hpp.html" title="Header de la classe FabriqueFacile." alt="" coords="620,315,759,344"/>
+<area shape="rect" id="node17" href="$_fabrique_difficile_8cpp.html" title="Implémentation de la classe FabriqueDifficile." alt="" coords="385,392,532,421"/>
+<area shape="rect" id="node23" href="$_fabrique_facile_8cpp.html" title="Implémentation de la classe FabriqueFacile." alt="" coords="657,392,796,421"/>
+<area shape="rect" id="node29" href="$_aventure1_facile_8cpp.html" title="Implementation de la classe Aventure1Facile." alt="" coords="547,237,693,267"/>
+<area shape="rect" id="node34" href="$_aventure2_difficile_8cpp.html" title="Implementation de la classe Aventure2Difficile." alt="" coords="717,237,869,267"/>
+<area shape="rect" id="node39" href="$_aventure2_facile_8cpp.html" title="Implementation de la classe Aventure2Facile." alt="" coords="75,237,221,267"/>
+<area shape="rect" id="node46" href="$_comportement_barbare_8cpp.html" title="Implémentation de la classe ComportementBarbare." alt="" coords="944,160,1131,189"/>
+<area shape="rect" id="node51" href="$_comportement_medic_8cpp.html" title="Implémentation de la classe ComportementMedic." alt="" coords="1155,160,1328,189"/>
+<area shape="rect" id="node56" href="$_comportement_enchanteur_8cpp.html" title="Implémentation de la classe ComportementEnchanteur." alt="" coords="1352,160,1557,189"/>
+</map>

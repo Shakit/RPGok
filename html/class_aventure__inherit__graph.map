@@ -1,0 +1,6 @@
+<map id="Aventure" name="Aventure">
+<area shape="rect" id="node3" href="$class_aventure1_difficile.html" title="classe abstraite aventure" alt="" coords="5,83,131,112"/>
+<area shape="rect" id="node5" href="$class_aventure1_facile.html" title="classe abstraite aventure" alt="" coords="155,83,275,112"/>
+<area shape="rect" id="node7" href="$class_aventure2_difficile.html" title="classe abstraite aventure" alt="" coords="299,83,424,112"/>
+<area shape="rect" id="node9" href="$class_aventure2_facile.html" title="classe abstraite aventure" alt="" coords="448,83,568,112"/>
+</map>

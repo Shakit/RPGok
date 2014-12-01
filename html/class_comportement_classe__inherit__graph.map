@@ -1,0 +1,5 @@
+<map id="ComportementClasse" name="ComportementClasse">
+<area shape="rect" id="node3" href="$class_comportement_barbare.html" title="Classe concrete de comportement." alt="" coords="5,83,165,112"/>
+<area shape="rect" id="node5" href="$class_comportement_enchanteur.html" title="Classe concrete de comportement." alt="" coords="189,83,371,112"/>
+<area shape="rect" id="node7" href="$class_comportement_medic.html" title="Classe concrete de comportement." alt="" coords="395,83,544,112"/>
+</map>
