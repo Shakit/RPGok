@@ -1,6 +1,15 @@
-//Main.cpp
-//auteurs : Alicia Boucard, Guillaume Legru
-//Classe Main
+/**
+ * \file main.cpp
+ * \author Alicia Boucard, Guillaume Legru
+ * \date 01 décembre 2014
+ * \version 1.0
+ * \brief Petit RPG réalisé pour l'UE Objet et Developpement d'Applications
+ *
+ * Projet de Design Pattern, petit RPG réalisé en C++ par Alicia Boucard et Guillaume Legru.
+ * Rappel des patterns utilisés : Strategy, Factory Method et Observer
+ *
+ */
+
 
 #include <iostream>
 #include <string>
@@ -12,12 +21,18 @@
 #include "Affichage.hpp"
 #include "Sujet.hpp"
 
+/**
+ * \fn int main()
+ * \brief Entreé du programme
+ *
+ * Programme principale
+ * 
+ * \return 0 en cas d'execution sans probleme
+ */
 int main()
 {
-	std::shared_ptr<Sujet> p(new Personnage("Toto"));
-	std::shared_ptr<Affichage> aff(new Affichage(p));
-	
-    std::string nomPerso1;
+
+	std::string nomPerso1;
     std::shared_ptr<Fabrique> fab_;
     bool JeuEnCours = true;
     int numAventure(0), choix1(0), choix2(0);
@@ -26,7 +41,8 @@ int main()
 	std::cout << "\t\t*************** NEW GAME START ***************" << std::endl;
 	std::cout << "Comment s'appelle votre personnage ? ";
 	std::cin >> nomPerso1;
-    Personnage perso1(""+nomPerso1);
+	std::shared_ptr<Sujet> perso1(new Personnage(nomPerso1));
+	std::shared_ptr<Affichage> aff(new Affichage(perso1));
 
 	while(numAventure != 1 && numAventure != 2)
 	{
@@ -52,17 +68,9 @@ int main()
         }
     }
 
-  // Arme arme("Epee",30);
-  // Arme* parme = &arme;
-  // Armure armure("armure blindee",10);
-  // Armure* parmu = &armure;
-
-  // perso1.setArme(parme);
-  // perso2.setArmure(parmu);
 	while(JeuEnCours)
 	{
-        perso1.afficher();
-		// perso2.afficher();
+        aff->afficherPerso();
         std::cout << "Taper : " << std::endl;
         std::cout << "(1) pour partir au combat (BASTON!). " << std::endl;
         std::cout << "(2) pour modifier Equipement/Classe. " << std::endl;
@@ -73,8 +81,7 @@ int main()
         switch(choix1)
         {
 		case 1 :
-			//perso1.attaque(perso2);
-			// perso2.attaque(perso1);
+			//round d'attaque
 			break;
 
 		case 2 :
@@ -101,7 +108,7 @@ int main()
 			break;
 
 		case 3 :
-			//////////////////
+			//marchand 
 			break;
 
 		case 4 :
@@ -116,5 +123,5 @@ int main()
 	std::cout << "\n\t\t*************** END GAME ***************\n" << std::endl;
 
 	return 0;
-}//main
+}
 

@@ -1,6 +1,16 @@
-//Personnage.cpp
-//auteurs : Alicia Boucard, Guillaume Legru
-//Implementation de la classe Personnage
+/**
+ * \file Personnage.cpp
+ * \author Alicia Boucard, Guillaume Legru
+ * \date 01 décembre 2014
+ * \version 1.0
+ * \brief Implementation de la classe Personnage
+ *
+ * Pattern Observer (sujet concret)
+ * Pattern Strategy (classe cliente)
+ * Classe Personnage
+ * Implementation des méthodes de la classe Personnage
+ *
+*/
 
 #include <iostream>
 #include <string>
@@ -10,95 +20,193 @@
 #include "Data.hpp"
 #include "Observer.hpp"
 
-/////////////////////////////////////////////////////////
-//Construteur
+/*================================================================================*/
+/**
+ * \brief Constructeur
+ *
+ * Constructeur de Personnage.
+ * Initiaalisation des champs de Personnage, Le comportement de classe par défaut
+ * est le comportement Barbare
+ *
+ * \param nom : string
+ */
 Personnage::Personnage(std::string nom) :
     nom_(nom), vie_(100), vieMax_(100), mana_(100), manaMax_(100),
 	arme_(new Arme()), armure_(new Armure()), compClasse_(new ComportementBarbare()){}
 
-/////////////////////////////////////////////////////////
-//Destructeur
+/*================================================================================*/
+/**
+ * \brief Destructeur
+ *
+ * Destructeur de Personnage.
+ * 
+ */
 Personnage::~Personnage(){}
 
-/////////////////////////////////////////////////////////
-//getters
+
+/*================================================================================*/
+/*================================================================================*/
+/*  GETTERS */
+
+/**
+ * \brief Getter de nom 
+ *
+ * Getter de nom 
+ *
+ * \return nom : string
+ */
 std::string Personnage::getNom()
 {
 	return nom_;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Getter de vie
+ *
+ * Getter de vie
+ *
+ * \return vie : int
+ */
 int Personnage::getVie()
 {
 	return vie_;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Getter de vie max 
+ *
+ * Getter de vie max
+ *
+ * \return vie max : int 
+ */
 int Personnage::getVieMax()
 {
 	return vieMax_;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Getter de mana
+ *
+ * Getter de mana
+ *
+ * \return mana : int 
+ */
 int Personnage::getMana()
 {
 	return mana_;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Getter de mana max
+ *
+ * Getter de mana 
+ *
+ * \return mana max : int x
+ */
 int Personnage::getManaMax()
 {
 	return manaMax_;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Getter d'armure
+ *
+ * Getter d'arme
+ *
+ * \return arme : pointeur d'arme
+ */
 std::shared_ptr<Arme> Personnage::getArme()
 {
 	return arme_;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Getter d'armure
+ *
+ * Getter d'armure
+ *
+ * \return armure : pointeur d'armure
+ */
 std::shared_ptr<Armure> Personnage::getArmure()
 {
 	return armure_;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Getter de comportement de classe
+ *
+ * Getter de comportemenr de classe
+ *
+ * \return compClasse : pointeur de comportement de classe
+ */
 std::shared_ptr<ComportementClasse> Personnage::getCompClasse()
 {
 	return compClasse_;
 }
-/////////////////////////////////////////////////////////
+
+
+/*================================================================================*/
+/*================================================================================*/
+/*  SETTERS  */
+
+/**
+ * \brief Setter de vie
+ *
+ * Setter de vie 
+ *
+ * \param vie : int
+ */
 void  Personnage::setVie(int vie)
 {
 	vie_ = vie;
 	notify();
 }
-/////////////////////////////////////////////////////////
+
+/*================================================================================*/
+/**
+ * \brief Setter d'arme 
+ *
+ * Setter d'arme 
+ *
+ * \param arme : pointeur d'arme
+ */
 void Personnage::setArme(std::shared_ptr<Arme> arme)
 {
-	//Arme* asupp;
-	//arme_->setNom(arme->getNom());
-	//arme_->setDegat(arme->getDegat());
-	//asupp = arme_;
-	//arme_=arme;
-	//delete(asupp);
 	arme_ = arme;
 	std::cout << "\t" << nom_ << " change d'arme : " << arme_->getNom() << "(" << arme_->getDegat()<< ")" << std::endl;
 	notify();
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Setter d'armure 
+ *
+ * Setter d'armure 
+ *
+ * \param armure : pointeur d'armure
+ */
 void Personnage::setArmure(std::shared_ptr<Armure> armure)
 {
-	//armure_->setNom(armure->getNom());
-	//armure_->setReducDegat(armure->getReducDegat());
 	armure_ = armure;
 	std::cout << "\t" << nom_ << " change d'armure : " << armure_->getNom() << "(" << armure_->getReducDegat() << ")" << std::endl;
 	notify();
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Setter de comportement de classe 
+ *
+ * Setter de comportement de classe 
+ *
+ * \param comportement de classe : pointeur de comportement de classe
+ */
 void Personnage::setClasse(std::shared_ptr<ComportementClasse> compClasse)
 {
 	compClasse_ = compClasse;
@@ -106,14 +214,30 @@ void Personnage::setClasse(std::shared_ptr<ComportementClasse> compClasse)
 	notify();
 }
 
-/////////////////////////////////////////////////////////
-//methodes
+
+/*================================================================================*/
+/*================================================================================*/
+/*  AUTRES METHODES  */
+
+/**
+ * \brief estVivant
+ *
+ * Méthode renvoyant vrai si le personnage est vivant, faux sinon
+ *
+ * \return true si vie > 0, false sinon
+ */
 bool Personnage::estVivant()
 {
 	return (vie_ > 0);
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Attaque
+ *
+ * Méthode d'attaque
+ *
+ */
 void Personnage::attaque(Personnage & cible)
 {
 	if(estVivant())
@@ -127,7 +251,13 @@ void Personnage::attaque(Personnage & cible)
     }
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Perte de points de vie
+ *
+ * Perte de points de vie due à une attaque physique, avec réduction des dégats par l'armure.
+ *
+ */
 void Personnage::subirDegats(int dgt)
 {
 
@@ -145,7 +275,13 @@ void Personnage::subirDegats(int dgt)
 	notify();
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Perte de points de vie due à attaque magique
+ *
+ * Perte de point de vie due à une attaque magique, sans réduction de dégats
+ *
+ */
 void Personnage::subirDegatsMagique(int dgt)
 {
 	vie_ -= (dgt);
@@ -163,13 +299,26 @@ void Personnage::subirDegatsMagique(int dgt)
 	notify();
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Gain de vie 
+ *
+ * Gain de points de vie dû à un soin
+ *
+ */
 void Personnage::soigner(Personnage & cible)
 {
 	cible.setVie(cible.getVie() + 25);
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Affichage
+ *
+ * Affichage des statistiques.
+ * Méthodes rendue inutile par l'utilisation de l'Observer
+ *
+ */
 void Personnage::afficher()
 {
 	std::cout << "\n------------------------------" << std::endl;
@@ -183,7 +332,13 @@ void Personnage::afficher()
 	std::cout << "\n------------------------------" << std::endl;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Notification
+ *
+ * Méthode de notification
+ *
+ */
 void Personnage::notify()
 {
 	std::vector<std::string> tab;
@@ -208,4 +363,3 @@ void Personnage::notify()
 	}
 }
 
-/////////////////////////////////////////////////////////

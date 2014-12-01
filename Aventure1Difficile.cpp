@@ -1,24 +1,53 @@
-//Aventure1Facile.cpp
-//auteurs : Alicia Boucard, Guillaume Legru
-//Implementation de la classe Aventure1
-
+/**
+ * \file Aventure1Difficile.cpp
+ * \author Alicia Boucard, Guillaume Legru
+ * \date 01 décembre 2014
+ * \version 1.0
+ * \brief Implementation de la classe Aventure1Difficile
+ *
+ * Pattern Factory Method
+ * Classe  Aventure1Difficile
+ * Implementation des méthodes de la classe Aventure1Difficile
+ *
+ */
 #include <iostream>
 #include <string>
 #include <memory>
 #include "Aventure1Difficile.hpp"
 
- /////////////////////////////////////////////////////////
- //Construteur
+/*================================================================================*/
+/**
+ * \brief Constructeur
+ *
+ * Constructeur d'Aventure2Difficile 
+ *
+ */
 Aventure1Difficile::Aventure1Difficile(){}
 
- /////////////////////////////////////////////////////////
+/*================================================================================*/
+/*================================================================================*/
+/*  AUTRES METHODES  */
+
+/**
+ * \brief Affichage de l'intro
+ *
+ * Affichage de l'intro de l'aventure
+ *
+ */
 void Aventure1Difficile::afficheIntro()
 {
     std::cout << "\t\t \"A la rescousse du capitaine Ichoux !\"\n " << std::endl;
     std::cout << "Vous êtes un corsaire et votre bateau a fait naufrage et vous vous reveillez sur une ile tropicale...seul. " << std::endl;
     std::cout << "Tout l'équipage a disparu. Vous choisissez donc d'aller parcourir cette île pour retrouver vos amis et surtout votre capitaine, bah oui c'est lui qui vous paye quand même!" << std::endl;
 }
-/////////////////////////////////////////////////////////
+
+/*================================================================================*/
+/**
+ * \brief Affichage de la partie 1
+ *
+ * Affichage de la 1ere partie de l'aventure
+ *
+ */
 void Aventure1Difficile::affichePart1()
 {
     std::cout << "Il faut chaud, il y a des palmiers tout autour. Vous vous dites que c'est pas si mal comme lieu de vacances." << std::endl;
@@ -28,7 +57,13 @@ void Aventure1Difficile::affichePart1()
     ennemi1_ = p1;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Affichage de la partie 2
+ *
+ * Affichage de la 2eme partie de l'aventure
+ *
+ */
 void Aventure1Difficile::affichePart2()
 {
     std::cout << "Ouf vous êtes vivant, bravo vous savez vous battre. " << std::endl;
@@ -39,7 +74,13 @@ void Aventure1Difficile::affichePart2()
     ennemi2_ = p2;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Affichage de la partie 3
+ *
+ * Affichage de la 3eme partie de l'aventure
+ *
+ */
 void Aventure1Difficile::affichePart3()
 {
     std::cout << " " << std::endl;
@@ -47,11 +88,15 @@ void Aventure1Difficile::affichePart3()
     boss_ = p3;
 }
 
-/////////////////////////////////////////////////////////
+/*================================================================================*/
+/**
+ * \brief Affichage de la fin
+ *
+ * Affichage de la fin de l'aventure
+ *
+ */
 void Aventure1Difficile::afficheFin()
 {
     std::cout << " " << std::endl;
 }
-
-/////////////////////////////////////////////////////////
 
